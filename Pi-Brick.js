@@ -35,9 +35,10 @@ ws.on('message', function (data) {
 function sendStatus(door, status) {
     var data = {
         "building": building,
-        "door": door,
+        "elevator_door": door,
         "broken": status
     }
+    ws.send(JSON.stringify(data));
 }
 
 
