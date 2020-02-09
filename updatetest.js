@@ -1,4 +1,4 @@
-function updateWorking(building){
+function updateWorking(building, eleIndex){
 	var MongoClient = require('mongodb').MongoClient;
 	var url = "mongodb+srv://dbUser:2S1tQbxl0YXv8Xth@brickedelevator-4g5z0.mongodb.net/test?retryWrites=true&w=majority"
 
@@ -12,10 +12,10 @@ function updateWorking(building){
 		var changeVal;
 		dbo.collection("brickedElevator").findOne({"building" : building}, function(err, result){
 			if(err) throw err;
-			if(result.elevators[0].working){
-				changeVal = {'$set' : {"elevators.0.working" : false }}
+			if(result.elevators[eleIndex].working){
+				changeVal = {'$set' : {"elevators."+eleIndex+".working" : false }}
 			}else{
-				changeVal = {'$set' : {"elevators.0.working" : true }}
+				changeVal = {'$set' : {"elevators."+eleIndex+".working" : true }}
 			}
 			dbo.collection("brickedElevator").updateOne({"building" : "Ellingson"},changeVal , function(err,res) {
 							if (err) throw err;
