@@ -3,6 +3,46 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+.navbar {
+  background-color: #F76902;
+  box-shadow: 0px 10px;
 }
+
+.navbar a {
+  color: #FFFFFF;
+}
+
+.navbar img {
+  width: 75px;
+}
+
+#buildingsAccordion {
+  padding-top: 40px;
+}
+
+.card-header btn {
+  color: 
+}
+
+/*
+.header {
+  width: 100%;
+  background-color: #F76902;
+}
+
+.header a {
+  float: left;
+  text-align: center;
+  padding: 12px;
+  color: #FFFFFF;
+  font-size: 17px;
+}
+
+
+
+@media screen and (max-width: 500px) {
+  .header {
+    display: none;
+  }
+}
+*/
