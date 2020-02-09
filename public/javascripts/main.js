@@ -43,8 +43,8 @@ $(document).ready(function() {
 
 });
 
-function postUpdate(building,door){
+$("button").click(function(){
     $.post('https://BrickedElevators.tech/update',JSON.stringify({building,door}),function(data, status){
         console.log('Updated Data');
     });
-}
+});
