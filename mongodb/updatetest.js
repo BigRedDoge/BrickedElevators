@@ -24,4 +24,4 @@ function updateWorking(building, eleIndex){
 	});
 }
 
-updateWorking("Ellingson", 0);
+//updateWorking("Ellingson", 0);
