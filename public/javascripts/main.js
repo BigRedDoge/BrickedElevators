@@ -46,9 +46,9 @@ $(document).ready(function() {
             console.log(status)
         });
     });
-    
+
     function statusUpdate(building, door) {
-        $.get(`http://localhost/${building}/${door}`, function(data, status) {
+        $.get(`http://seancliff.com/${building}/${door}`, function(data, status) {
             console.log('Updated Data');
         });
     }
