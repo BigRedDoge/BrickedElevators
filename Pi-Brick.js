@@ -38,6 +38,7 @@ function sendStatus(door, status) {
         "door": door,
         "broken": status
     }
+    ws.send(JSON.stringify(data));
 }
 
 
