@@ -3,7 +3,7 @@
 /**
  * Module dependencies.
  */
-require('dotenv').config({path: '../.env'})
+require('dotenv').config({path: '../.env'});
 var app = require('../app');
 var websocket = require('../socket/websocket');
 var debug = require('debug')('brickedelevators:server');
