@@ -10,9 +10,9 @@ $(document).ready(function() {
                      ["Res Hall B", 1],
                      ["Res Hall C", 1],
                      ["Res Hall D", 1]];
-    
 
-    $(".card").click(function() {
+
+    $("#building1").click(function() {
         $("#collapse1").collapse("toggle");
     });
 
