@@ -8,7 +8,7 @@ async function startWSS(server) {
         console.log("Pi Conencted!");
     
         ws.on('message', function incoming(data) {
-            var res = JSON.parse(data);
+            var res = JSON.parse(JSON.stringify(data));
             console.log(data);
             
         });
@@ -16,6 +16,11 @@ async function startWSS(server) {
         ws.on('close', function incoming(data) {
             console.log("Remote Pi has disconnected");
         });
+
+        ws.send({
+            "door": "NRH",
+            "status": 1
+        })
     
     });
 }

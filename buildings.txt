@@ -1,10 +1,10 @@
-Gibson:1
-Gleason:2
-Ellingson:2
-NRH:2
-Sol:2
-Peterson:1
-ResA:1
-ResB:1
-ResC:1
-ResD:1
+[["Gibson", 1],
+["Gleason", 2],
+["Ellingson", 2],
+["NRH", 2],
+["Sol", 2],
+["Peterson", 1],
+["Res Hall A", 1],
+["Res Hall B", 1],
+["Res Hall C", 1],
+["Res Hall D", 1]]

@@ -5,9 +5,9 @@ var WebSocket = require('ws');
 var Gpio = require('onoff').Gpio;
 var LED = [new Gpio(2, 'out'), new Gpio(8, 'out')];
 var setButton = [new Gpio(3, 'in', 'rising', { debounceTimeout: 50 }),
-new Gpio(5, 'in', 'rising', { debounceTimeout: 50 })];
+new Gpio(17, 'in', 'rising', { debounceTimeout: 50 })];
 var resetButton = [new Gpio(4, 'in', 'rising', { debounceTimeout: 50 }),
-new Gpio(6, 'in', 'rising', { debounceTimeout: 50 })];
+new Gpio(27, 'in', 'rising', { debounceTimeout: 50 })];
 var broken = [0, 0];
 var elevators = ['NRH1', 'NRH2']
 var building = 'NRH';
@@ -42,29 +42,30 @@ function sendStatus(door, status) {
 }
 
 
-function btnHandler(door, status) {
-    if (broken[door]) {
-        broken[door] = status;
-        sendStatus(door, status)
-        LED[!status].writeSync(status);
+function btnHandler(type, door) {
+    if(!(type||broken[door])){
+        broken[door]=1;
+        sendStatus(door,1);
+        LED[door].writeSync(1);
+    }
+    else if(type&&broken[door]) {
+        broken[door]=0;
+        sendStatus(door,0)
+        LED[door].writeSync(0);
     }
 }
 
 
 setButton[0].watch(function (err, value) {
-    console.log("set 0");
-    btnHandler(0, 1);
+    btnHandler(0,0);
 });
 setButton[1].watch(function (err, value) {
-    console.log("set 1");
-    btnHandler(1, 1);
+    btnHandler(0,1);
 });
 
 resetButton[0].watch(function (err, value) {
-    console.log("reset 0");
-    btnHandler(0, 0);
+    btnHandler(1,0);
 });
 resetButton[1].watch(function (err, value) {
-    console.log("reset 1");
-    btnHandler(1, 0);
+    btnHandler(1,1);
 });
