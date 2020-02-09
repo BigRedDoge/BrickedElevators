@@ -25,8 +25,8 @@ ws.on('open', function open() {
 
 ws.on('message', function (data) {
     var info = JSON.parse(data);
-    var door = (info.door).parseInt();
-    var status = (info.status).parseInt();
+    var door = info.door;
+    var status = info.status;
     broken[door] = status
     LED[door].writeSync(status)
 });
@@ -35,10 +35,9 @@ ws.on('message', function (data) {
 function sendStatus(door, status) {
     var data = {
         "building": building,
-        "elevator_door": door,
+        "door": door,
         "broken": status
     }
-    ws.send(JSON.stringify(data));
 }
 
 
