@@ -8,20 +8,20 @@ MongoClient.connect(url, function(err, db){
 	dbo.createCollection("buildings", function(err, res){
 		if(err) throw err;
 	});
-		dbo.collection("brickedElevator").insertMany([{"building" : "Gibson", "elevators" : [{"position" : "center", "working" : true, "recentChanges" : []}]},
-					{"building" : "Gleason", "elevators" : [{"position" : "left", "working" : true, "recentChanges" : []},
-					{"position" : "right", "working" : true, "recentChanges" : []}]},
-					{"building" : "Ellingson", "elevators" : [{"position" : "left", "working" : true, "recentChanges" : []},
-					{"position" : "right", "working" : true, "recentChanges" : []}]},
-					{"building" : "NRH", "elevators" : [{"position" : "left", "working" : true, "recentChanges" : []},
-					{"position" : "right", "working" : true, "recentChanges" : []}]},
-					{"building" : "Sol Heumann", "elevators" : [{"position" : "left", "working" : true, "recentChanges" : []},
-					{"position" : "right", "working" : true, "recentChanges" : []}]},
-					{"building" : "Peterson", "elevators" : [{"position" : "center", "working" : true, "recentChanges" : []}]},
-					{"building" : "Res Hall A", "elevators" : [{"position" : "center", "working" : true, "recentChanges" : []}]},
-					{"building" : "Res Hall B", "elevators" : [{"position" : "center", "working" : true, "recentChanges" : []}]},
-					{"building" : "Res Hall C", "elevators" : [{"position" : "center", "working" : true, "recentChanges" : []}]},
-					{"building" : "Res Hall D", "elevators" : [{"position" : "center", "working" : true, "recentChanges" : []}]}], function(err, res){
+		dbo.collection("brickedElevator").insertMany([{"building" : "Gibson", "elevators" : [{"position" : "center", "working" : true}]},
+					{"building" : "Gleason", "elevators" : [{"position" : "left", "working" : true},
+					{"position" : "right", "working" : true}]},
+					{"building" : "Ellingson", "elevators" : [{"position" : "left", "working" : true},
+					{"position" : "right", "working" : true}]},
+					{"building" : "NRH", "elevators" : [{"position" : "left", "working" : true},
+					{"position" : "right", "working" : true}]},
+					{"building" : "Sol Heumann", "elevators" : [{"position" : "left", "working" : true},
+					{"position" : "right", "working" : true}]},
+					{"building" : "Peterson", "elevators" : [{"position" : "center", "working" : true}]},
+					{"building" : "Res Hall A", "elevators" : [{"position" : "center", "working" : true}]},
+					{"building" : "Res Hall B", "elevators" : [{"position" : "center", "working" : true}]},
+					{"building" : "Res Hall C", "elevators" : [{"position" : "center", "working" : true}]},
+					{"building" : "Res Hall D", "elevators" : [{"position" : "center", "working" : true}]}], function(err, res){
 						if (err) throw err;
 						console.log("Created building statuses");
 						db.close();

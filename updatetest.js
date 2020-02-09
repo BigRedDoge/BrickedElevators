@@ -4,23 +4,24 @@ function updateWorking(building, eleIndex){
 
 	MongoClient.connect(url, function(err, db){
 		if(err) throw err;
-		
 		var dbo = db.db("brickedElevator");
-		dbo.createCollection("buildings", function(err, res){
-			if(err) throw err;
-		});
 		var changeVal;
 		dbo.collection("brickedElevator").findOne({"building" : building}, function(err, result){
 			if(err) throw err;
+			var eleWork = "elevators." + eleIndex + ".working";
 			if(result.elevators[eleIndex].working){
-				changeVal = {'$set' : {"elevators."+eleIndex+".working" : false }}
+				changeVal = {'$set' : { [eleWork] : false }}
 			}else{
-				changeVal = {'$set' : {"elevators."+eleIndex+".working" : true }}
+				changeVal = {'$set' : { [eleWork] : true }}
 			}
 			dbo.collection("brickedElevator").updateOne({"building" : "Ellingson"},changeVal , function(err,res) {
 							if (err) throw err;
 							console.log("Updated");
+							db.close();
+							return true;
 							});
 		});
 	});
 }
+
+updateWorking("Ellingson", 0);
