@@ -20,8 +20,8 @@ var ws = new WebSocket('ws://192.168.43.187/:3030', {
 ws.on('open', function open() {
     console.log("Connected to Server!");
     ws.send("Remote Pi Connected");
-    monitorInputs
 });
+
 
 ws.on('message', function (data) {
     var info = JSON.parse(data);
@@ -56,16 +56,19 @@ function btnHandler(door, status) {
 
 
 setButton[0].watch(function (err, value) {
+    console.log("set 0");
     btnHandler(0, 1);
 });
 setButton[1].watch(function (err, value) {
+    console.log("set 1");
     btnHandler(1, 1);
 });
 
 resetButton[0].watch(function (err, value) {
+    console.log("reset 0");
     btnHandler(0, 0);
 });
 resetButton[1].watch(function (err, value) {
+    console.log("reset 1");
     btnHandler(1, 0);
 });
-
