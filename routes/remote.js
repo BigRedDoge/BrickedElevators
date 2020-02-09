@@ -1,13 +1,16 @@
 var express = require('express');
 var router = express.Router();
+var db = require("../mongodb/db.js");
 
-/*
-function getMongoData() {
-    console.log("stuff");
+
+function getMongoData(building, door) {
+    db.getBuilding(building).then((res) => {
+        return JSON.stringify(res);
+    });
 }
 
 var getMongoDataMiddleware = function(req, res, next) {
-    if (req.params.dorm && req.params.door) {
+    if (req.params.building && req.params.door) {
         req.mongoData = getMongoData();
         return next();
     } else {
@@ -15,11 +18,11 @@ var getMongoDataMiddleware = function(req, res, next) {
     }
 }
 
-router.get('/status/?dorm/?door', getMongoData, (req, res, next) => {
+router.get('/status/?building/?door', getMongoData, (req, res, next) => {
 
-    console.log(dorm);
-    res.json(`Elevator status of elevator number ${req.params.door} in ${req.params.dorm}`);
-});*/
+    console.log(building);
+    res.json(req.mongoData);
+});
 
 router.post('/update', (req, res) => {
     console.log(req.params);

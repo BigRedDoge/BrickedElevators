@@ -28,7 +28,6 @@ function getBuildings() {
 	});
 }
 
-getBuildings().then((res) => console.log(res));
 
 
 

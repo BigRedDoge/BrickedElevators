@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-//var remoteRouter = require('./routes/remote');
+var remoteRouter = require('./routes/remote');
 var app = express();
 
 // view engine setup
