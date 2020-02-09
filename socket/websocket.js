@@ -1,4 +1,5 @@
 var WebSocket = require('ws');
+var db = require("../mongodb/db.js");
 // WebSocket Server
 
 async function startWSS(server) {
@@ -9,6 +10,7 @@ async function startWSS(server) {
     
         ws.on('message', function incoming(data) {
             var res = JSON.parse(JSON.stringify(data));
+            db.updateStatus()
             console.log(data);
         });
      

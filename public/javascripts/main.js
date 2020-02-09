@@ -40,11 +40,21 @@ $(document).ready(function() {
     });    $("#building10").click(function() {
         $("#collapse10").collapse("toggle");
     });
-
-});
-
-$("button").click(function(){
-    $.post('https://BrickedElevators.tech/update',JSON.stringify({building,door}),function(data, status){
-        console.log('Updated Data');
+    
+    $("#nrh-btn").click(function() {
+        $.get("http://localhost/NRH/1", function(data, status) {
+            console.log(status)
+        });
     });
+    
+    function statusUpdate(building, door) {
+        $.get(`http://localhost/${building}/${door}`, function(data, status) {
+            console.log('Updated Data');
+        });
+    }
+    
+
 });
+/*
+
+*/

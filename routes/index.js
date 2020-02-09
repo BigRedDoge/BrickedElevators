@@ -35,7 +35,7 @@ var getAllMongo = function(req, res, next) {
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
-  res.json(req.mongoData)
+  //res.json(req.mongoData)
 });
 
 router.get('/db', getAllMongo, function(req, res, next) {
