@@ -16,19 +16,21 @@ var ws = new WebSocket('ws://192.168.43.187/:3030', {
     perMessageDeflate: false
 });
 
+
 ws.on('open', function open() {
     console.log("Connected to Server!");
     ws.send("Remote Pi Connected");
     monitorInputs
 });
 
-ws.on('update', function (data) {
+ws.on('message', function (data) {
     var info = JSON.parse(data);
     var door = (info.door).parseInt();
     var status = (info.status).parseInt();
     broken[door] = status
     LED[door].writeSync(status)
 });
+
 
 function sendStatus(door, status) {
     var data = {
@@ -37,22 +39,6 @@ function sendStatus(door, status) {
         "broken": status
     }
     ws.send(JSON.stringify(data));
-}
-
-function monitorInputs() {
-    setButton[0].watch(function (err, value) {
-        btnHandler(0, 1);
-    });
-    setButton[1].watch(function (err, value) {
-        btnHandler(1, 1);
-    });
-
-    resetButton[0].watch(function (err, value) {
-        btnHandler(0, 0);
-    });
-    resetButton[1].watch(function (err, value) {
-        btnHandler(1, 0);
-    });
 }
 
 
@@ -67,4 +53,19 @@ function btnHandler(door, status) {
         LED[!status].writeSync(status);
     }
 }
+
+
+setButton[0].watch(function (err, value) {
+    btnHandler(0, 1);
+});
+setButton[1].watch(function (err, value) {
+    btnHandler(1, 1);
+});
+
+resetButton[0].watch(function (err, value) {
+    btnHandler(0, 0);
+});
+resetButton[1].watch(function (err, value) {
+    btnHandler(1, 0);
+});
 
