@@ -47,14 +47,15 @@ $(document).ready(function() {
         });
     });
 
-    function statusUpdate(building, door) {
-        $.get(`http://seancliff.com/${building}/${door}`, function(data, status) {
-            console.log('Updated Data');
-        });
-    }
+    
     
 
 });
+function statusUpdate(building, door) {
+    $.get(`http://seancliff.com/${building}/${door}`, function(data, status) {
+        console.log('Updated Data');
+    });
+}
 /*
 
 */
