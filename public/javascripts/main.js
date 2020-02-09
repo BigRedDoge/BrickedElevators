@@ -12,8 +12,9 @@ $(document).ready(function() {
                      ["Res Hall D", 1]];
 
 
-    $("#building1").click(function() {
-        $("#collapse1").collapse("toggle");
-    });
-
+    for(var i=0;i<10;i++){
+        $("#building"+i).click(function() {
+            $("#collapse"+i).collapse("toggle");
+        });
+    }
 });
