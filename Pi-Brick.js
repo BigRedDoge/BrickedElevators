@@ -43,10 +43,6 @@ function sendStatus(door, status) {
 
 
 function btnHandler(door, status) {
-    if (err) {
-        console.error('Setting Error');
-        return;
-    }
     if (broken[door]) {
         broken[door] = status;
         sendStatus(door, status)
