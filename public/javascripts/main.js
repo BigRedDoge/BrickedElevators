@@ -12,9 +12,33 @@ $(document).ready(function() {
                      ["Res Hall D", 1]];
 
 
-    for(var i=0;i<10;i++){
-        $("#building"+i).click(function() {
-            $("#collapse"+i).collapse("toggle");
-        });
-    }
+    $("#building1").click(function() {
+        $("#collapse1").collapse("toggle");
+    });
+    $("#building2").click(function() {
+        $("#collapse2").collapse("toggle");
+    });
+    $("#building3").click(function() {
+        $("#collapse3").collapse("toggle");
+    });
+    $("#building4").click(function() {
+        $("#collapse4").collapse("toggle");
+    });
+    $("#building5").click(function() {
+        $("#collapse5").collapse("toggle");
+    });
+    $("#building6").click(function() {
+        $("#collapse6").collapse("toggle");
+    });
+    $("#building7").click(function() {
+        $("#collapse7").collapse("toggle");
+    });
+    $("#building8").click(function() {
+        $("#collapse8").collapse("toggle");
+    });    $("#building9").click(function() {
+        $("#collapse9").collapse("toggle");
+    });    $("#building10").click(function() {
+        $("#collapse10").collapse("toggle");
+    });
+
 });
